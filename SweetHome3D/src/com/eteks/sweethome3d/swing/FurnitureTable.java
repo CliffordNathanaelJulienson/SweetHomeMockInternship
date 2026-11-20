@@ -1190,14 +1190,14 @@ public class FurnitureTable extends JTable implements View, Printable {
       switch (property) {
         case CATALOG_ID :
         case NAME :
-          return 120; 
+          return 120;
         case WIDTH :
         case DEPTH :
         case HEIGHT :
-        case VOLUME: return 50;
-          case X :
+        case VOLUME :
+        case X :
         case Y :
-        case ELEVATION : 
+        case ELEVATION :
           return 50;
         case ANGLE :
           return 35;        
@@ -1238,7 +1238,7 @@ public class FurnitureTable extends JTable implements View, Printable {
           return getSizeRenderer(HomePieceOfFurniture.SortableProperty.HEIGHT, preferences);
         case VOLUME :
           return getSizeRenderer(HomePieceOfFurniture.SortableProperty.VOLUME, preferences);
-          case X :
+        case X :
           return getSizeRenderer(HomePieceOfFurniture.SortableProperty.X, preferences);
         case Y :
           return getSizeRenderer(HomePieceOfFurniture.SortableProperty.Y, preferences);
