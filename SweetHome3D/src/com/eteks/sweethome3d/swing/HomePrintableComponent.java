@@ -357,7 +357,7 @@ public class HomePrintableComponent extends JComponent implements Printable {
             public boolean include(Home home, HomePieceOfFurniture piece) {
               // Print furniture of every viewable level
               return (furnitureFilter == null || furnitureFilter.include(home, piece))
-                      && (piece.getLevel() == null || piece.getLevel().isViewable());
+                  && (piece.getLevel() == null || piece.getLevel().isViewable());
             }
           });
       } else {

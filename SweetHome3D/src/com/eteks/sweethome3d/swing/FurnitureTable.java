@@ -761,10 +761,10 @@ public class FurnitureTable extends JTable implements View, Printable {
     }
     // Print a Level column for homes with levels, without changing the on-screen table
     if (!levelColumnDisplayed
-            && columnModel instanceof FurnitureTableColumnModel
-            && !((FurnitureTreeTableModel)getModel()).home.getLevels().isEmpty()) {
+        && columnModel instanceof FurnitureTableColumnModel
+        && !((FurnitureTreeTableModel)getModel()).home.getLevels().isEmpty()) {
       printedColumns.add(((FurnitureTableColumnModel)columnModel).availableColumns.get(
-              HomePieceOfFurniture.SortableProperty.LEVEL));
+          HomePieceOfFurniture.SortableProperty.LEVEL));
     }
     for (final TableColumn tableColumn : printedColumns) {
       // Create a printable column from existing table column
