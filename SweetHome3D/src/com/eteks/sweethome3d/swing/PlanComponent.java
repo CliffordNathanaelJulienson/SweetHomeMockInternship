@@ -2028,7 +2028,8 @@ public class PlanComponent extends JComponent implements PlanView, Scrollable, P
 
   /**
    * Prints the plan, one page per viewable level, in the home's level order.
-   * The selected level is restored afterwards, even if a page fails to print.
+   * The selected level and the selected items are restored afterwards,
+   * even if a page fails to print.
    */
   public int print(Graphics g, PageFormat pageFormat, int pageIndex) {
     List<Level> printedLevels = new ArrayList<Level>();
@@ -2047,11 +2048,15 @@ public class PlanComponent extends JComponent implements PlanView, Scrollable, P
       return NO_SUCH_PAGE;
     }
     Level selectedLevel = this.home.getSelectedLevel();
+    // Changing the selected level deselects items of other levels, so keep a copy to restore them
+    List<Selectable> selectedItems = new ArrayList<Selectable>(this.home.getSelectedItems());
     try {
       this.home.setSelectedLevel(printedLevels.get(pageIndex / pagesPerLevel));
       return printSelectedLevel(g, pageFormat, pageIndex % pagesPerLevel);
     } finally {
       this.home.setSelectedLevel(selectedLevel);
+      // Restore items after the level, as setting the level clears items of other levels
+      this.home.setSelectedItems(selectedItems);
     }
   }
 
